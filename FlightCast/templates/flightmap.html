@@ -32,22 +32,16 @@
                       <li><a href="#"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
                     </div>
                   </nav>
-            <div class="container">
-                
+            <div class="container" style="padding-top:65px;">
+                    
                 
             </div>
             <div id="map"></div>
 
 
-            <p id="waypoints"></p>
-
             <script type="text/javascript">
                 var waypoints = '{{ waypointsdata | tojson | safe }}';
-                
                 obj = JSON.parse(waypoints);
-             
-                document.getElementById("waypoints").innerHTML = obj[1].latitude + " " + obj[1].longitude;
-
             </script>
 
             <!-- API key -->
