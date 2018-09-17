@@ -1,3 +1,8 @@
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+
 from flask import Flask, render_template, redirect
 from FlightMap import flightmapdata
 
@@ -13,9 +18,12 @@ def home():
 
 
 
+@app.route("/flightsearch")
+def flightsearch():
+
+    return render_template("flightsearch.html")
 
 
-    #return redirect("/", code=302)
 
 @app.route("/flightmap")
 def flightmap():
@@ -25,6 +33,20 @@ def flightmap():
     return render_template("flightmap.html", waypointsdata=waypoints)
 
 #AAL745-1534829157-airline-0092
+
+@app.route("/airportdata")
+def airportdata():
+
+    engine = create_engine("sqlite:///airports.db")
+    Base = automap_base()
+    Base.prepare(engine, reflect=True)
+    Airports = Base.classes.airports
+    session = Session(engine)
+
+    
+
+
+    return render_template("airportdata.html")
 
 
 
