@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="/static/styles/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+    <script type="text/javascript">
+      var obj = [];
+    </script>
   </head>
   <body>
     <!-- The div that holds our map-->
@@ -63,12 +65,18 @@
 
     <div class = "flight-box-2">
     
-      <table>
-        
-      </table> 
-    
-    
+      <table style="background-color: #ffffff;" class="table table-hover table-striped">
+        <thead>
+            <tr><th>Flight Number</th><th>Aircraft</th><th>Origin City</th><th>Destination City</th><th>Est Departure</th><th>Est Arrival</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-
   </div>
+    <script type="text/javascript">
+        var flightdata = '{{ flightdata | tojson | safe }}';
+        obj = JSON.parse(flightdata);
+    </script>
+    <script src="/static/scripts/flightseach.js"></script>
   </body>
+  </html>

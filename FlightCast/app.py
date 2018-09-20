@@ -6,34 +6,37 @@ import json
 
 from flask import Flask, render_template, redirect, jsonify
 from FlightMap import flightmapdata
+from FlightSearch import flightsearchdata
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
 
-    #locations = {"startLat":7.8731, "startLon":80.7718, "endLat":-18.7669, "endLon":46.8691 }
-
     return render_template("index.html")
-
-
 
 
 @app.route("/flightsearch")
 def flightsearch():
 
-    return render_template("flightsearch.html")
+    flightdata = flightsearchdata('CLT','ATL','09/19/2018')
+
+    return render_template("flightsearch.html", flightdata=flightdata)
 
 
 
-@app.route("/flightmap")
-def flightmap():
+@app.route("/flightmap/<flightid>")
+def flightmap(flightid):
 
-    waypoints = flightmapdata("AAL745-1534829157-airline-0092")
+    #flightid = "AAL745-1534829157-airline-0092"
+
+    #flightid = "AAL846-1537334758-airline-0217"
+
+    waypoints = flightmapdata(flightid)
 
     return render_template("flightmap.html", waypointsdata=waypoints)
 
-#AAL745-1534829157-airline-0092
+
 
 @app.route("/airportdata")
 def airportdata():

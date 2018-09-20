@@ -1,7 +1,3 @@
-
-
-
-
 d3.select("tbody")
     .selectAll("tr")
     .data(obj)
