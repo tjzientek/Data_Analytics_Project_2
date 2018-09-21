@@ -98,22 +98,11 @@ input.submit-Button {
 
 
 
-.flight-flex-container div{
+.container-fluid-body {
  
   margin-top: 100px;
+  margin-left: 100px;
   justify-content: center;
-  align-content:flex-start ;
+  align-content:flex-end;
 }
 
-.flight-box-1{
-  display: flex;
-  flex-direction: column;
-}
-
-/* .flight-box-2{
-  display: flex;
-  justify-content: center;
-  align-content: flex-end;
-  
-
-} */
