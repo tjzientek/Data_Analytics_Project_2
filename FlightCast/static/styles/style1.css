@@ -1,68 +1,19 @@
-
+/* remove default margin and padding from body */
 body {
-  background-image: url("/static/images/AirplaneHD_27L.png");
-  background-size: cover;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
 }
 
-
-
-/* button {
-  background-color: dodgerblue;
-  border: none;
-  color: black;
-  padding: 15px 25px;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-} */
-
-.airplane-flex-container {
-  display: flex;
-  
+/* set map, body, and html to 100% of the screen size */
+body,
+html {
+  height: 100%;
+  width: 100%;
 }
 
-.airplane-flex-container div{
-  /* border: 1px #ccc solid; */
-  padding: 50px;
-  margin-top: 100px;
-  justify-content: space-between;
-  align-content:center ;
+#map {
+  width: inherit;
+  height: inherit;
+  position: fixed !important;
+  outline: none;
 }
-.airplane-box-1{
-  flex: 4;
-
-}
-
-.airplane-box-2{
-  flex: 6;
-}
-
-.flight-flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.flight-flex-container div{
- 
-  margin-top: 50px;
-  justify-content: center;
-  align-content:flex-start ;
-}
-
-.flight-box-1{
-  display: flex;
-  flex-direction: column;
-}
-
-/* .flight-box-2{
-  display: flex;
-  justify-content: center;
-  align-content: flex-end;
-  
-
-} */
