@@ -41,7 +41,7 @@ input.submit-Button {
   border: 1px solid #fff;
   }
 
-.airplane-flex-container div{
+.airplane-flex-container {
   /* border: 1px #ccc solid; */
   padding: 50px;
   margin-top: 100px;
@@ -69,12 +69,12 @@ input.submit-Button {
   
   .row {margin: 0 -5px;}
   
-  /* Clear floats after the columns */
-  .row:after {
+  /* Clear floats after the columns
+  . row: after {
     content: "";
     display: table;
     clear: both;
-  }
+  } 
   
   /* Responsive columns */
   @media screen and (max-width: 600px) {
@@ -106,3 +106,16 @@ input.submit-Button {
   align-content:flex-end;
 }
 
+form {
+  padding-top: 10px;
+  margin-top: 50px;
+}
+
+.table {
+  padding-left: 150px;
+  margin-top: 150px;
+}
+
+p {
+  font-size: 20px;
+}
