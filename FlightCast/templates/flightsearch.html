@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript">
+      var obj = [];
+      var obj2 = [];
+    </script>
+  </head>
+  <body>
+
+  <!--D3-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+    <!--Leaflet JavaScript-->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+    <!-- API Key-->
+    
+
+    <!-- JavaScript-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--NavBar-->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img src = "/static/images/logo.png" alt="logo" style="width:50px;">
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/flightsearch">Flight Search</a></li>
+        <li><a href="/airportdata">Data</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="/aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
+    </div>
+  </nav>
+  <div class="navpadding">&nbsp;</div>
+  <div class="container-fluid-body">
+    <div class="row">
+      <div class="col-sm-3 col-md-6 col-lg-4 bg-success">
+          <form autocomplete="off" action="/send">
+            <div class="autocomplete" style="width:500px;">
+                <input id="Origin" type="text" name="Origin" placeholder="Origin">
+            </div>
+            <br><br>
+            <div class="autocomplete" style="width:500px;">
+                <input id="Destination" type="text" name="Destination" placeholder="Destination">
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="glyphicon glyphicon-calendar"></span> Calendar
+              <input id="date" type="date" class="form-control" name="Date" placeholder="Date" name="trip"
+                       value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+                       <div class="input-group-addon">
+                          <span class="glyphicon glyphicon-th"></span>
+                      </div>
+            </div>
+            <input class="submit-Button" type="button" value="SUBMIT">
+            
+        </form>
+      </div>
+      <div class="col-sm-9 col-md-6 col-lg-8">
+        <table style="background-color: #ffffff;" class="table table-hover table-striped">
+          <thead>
+              <tr><th>Flight Number</th><th>Aircraft</th><th>Origin City</th><th>Destination City</th><th>Est Departure</th><th>Est Arrival</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    
+      
+   
+    <script type="text/javascript">
+        var flightdata = '{{ flightdata | tojson | safe }}';
+        obj = JSON.parse(flightdata);
+        
+    </script>
+    <script src="/static/scripts/flightseach.js"></script>
+  </body>
+  </html>
